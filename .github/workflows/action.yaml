@@ -86,9 +86,9 @@ jobs:
             aws lambda create-function \
               --function-name test-function \
               --runtime python3.8 \  
-              --code S3Bucket=my-github-action-89675,S3Key=${{ github.sha }}.zip \  
+              --code "S3Bucket=my-github-action-89675,S3Key=${{ github.sha }}.zip" \  
               --handler lambda_function.lambda_handler \
-              --role arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/lamda-github-action-role
+              --role "arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/lamda-github-action-role"
         - name: Wait 30 seconds  
           run: sleep 30  
         - name: Destroy test function  
